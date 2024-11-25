@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Declaración de variables
+let num1 = 10; // Primer número
+let num2 = 5;  // Segundo número
+let operacion = "suma"; // Operación inicial (puede ser "suma", "resta", "multiplicación", "división")
+
+// Función para realizar operaciones
+function realizarOperacion(num1, num2, operacion) {
+  let resultado;
+
+  // Validación de la operación
+  if (operacion === "suma") {
+    resultado = num1 + num2;
+  } else if (operacion === "resta") {
+    resultado = num1 - num2;
+  } else if (operacion === "multiplicacion") {
+    resultado = num1 * num2;
+  } else if (operacion === "division") {
+    // Validación de división por cero
+    if (num2 === 0) {
+      return "Error: No se puede dividir por cero.";
+    } else {
+      resultado = num1 / num2;
+    }
+  } else {
+    return "Error: Operación no válida.";
+  }
+
+  return resultado;
+}
+
+// Bucle para realizar múltiples operaciones
+let continuar = true;
+while (continuar) {
+  // Solicitar al usuario los números y la operación
+  let num1 = parseFloat(prompt("Ingrese el primer número:"));
+  let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+  let operacion = prompt("Ingrese la operación (suma, resta, multiplicacion, division):").toLowerCase();
+
+  // Realizar la operación
+  let resultado = realizarOperacion(num1, num2, operacion);
+  
+  // Mostrar el resultado
+  alert("El resultado de la operación es: " + resultado);
+
+  // Preguntar al usuario si desea realizar otra operación
+  let respuesta = prompt("¿Desea realizar otra operación? (si/no)").toLowerCase();
+
+  if (respuesta !== "si") {
+    continuar = false;
+    alert("¡Gracias por usar la calculadora!"); // Mensaje de despedida
+  }
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
